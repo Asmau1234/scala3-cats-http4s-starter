@@ -9,7 +9,10 @@ case class Rest(host: String, port: Int)
 
 case class FreeCurrencyApi(apiKey: String)
 
-case class Config(rest: Rest, freeCurrencyApi: FreeCurrencyApi)
+case class AzureNotificationHub(connectionString: String, hubName: String)
+
+case class Config(rest: Rest, freeCurrencyApi: FreeCurrencyApi, azureNotificationHub:AzureNotificationHub )
+
 
 object Config:
 

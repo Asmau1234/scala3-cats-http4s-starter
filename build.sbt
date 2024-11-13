@@ -12,6 +12,8 @@ lazy val root = project
     scalaVersion := scala3Version,
 
     libraryDependencies ++= Seq(
+      // Azure Notification Hubs
+      "com.windowsazure" % "Notification-Hubs-java-sdk" % "1.1.0",
       // HTTP server
       "org.http4s" %% "http4s-core" % http4sVersion,
       "org.http4s" %% "http4s-dsl" % http4sVersion,
@@ -26,7 +28,7 @@ lazy val root = project
 
       // Misc
       "com.typesafe" % "config" % "1.4.2",
-      "ch.qos.logback" % "logback-classic" % "1.4.6",
+      //"ch.qos.logback" % "logback-classic" % "1.2.1",
 
       // Test
       "org.scalameta" %% "munit" % "0.7.29" % Test,

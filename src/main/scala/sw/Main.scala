@@ -15,7 +15,8 @@ object Main extends ResourceApp.Forever:
       client <- BlazeClientBuilder[IO].resource
 
       service = FreeCurrencyApi(client, config.freeCurrencyApi.apiKey)
-      routes = Server.routes(service).orNotFound
+      notificationService = AzureNotificationHubsService(config.azureNotificationHub.connectionString, config.azureNotificationHub.hubName)
+      routes = Server.routes(service, notificationService).orNotFound
 
       _ <- BlazeServerBuilder[IO]
           .bindHttp(config.rest.port, config.rest.host)
